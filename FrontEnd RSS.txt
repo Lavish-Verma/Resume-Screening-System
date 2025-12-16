@@ -1,0 +1,305 @@
+import streamlit as st
+
+# Function to create a custom header with large title and button
+def custom_header():
+    st.markdown("""
+    <style>
+        .header {
+            background-color: #003366;  /* Dark Blue */
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-button {
+            background-color: #0099FF;
+            color: white;
+            padding: 20px 40px;
+            font-size: 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-button:hover {
+            background-color: #006bb3;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Custom header with large text
+    st.markdown('<div class="header">Welcome to the Resume Screening System</div>', unsafe_allow_html=True)
+    
+    st.markdown(""" 
+        <div style="text-align:center; margin-top:30px;">
+            <a href="#upload-section" class="hero-button">Get Started</a>
+        </div>
+    """, unsafe_allow_html=True)
+
+# Function for Hero Section with large paragraphs and background slide color
+def hero_section():
+    st.markdown("""
+    <style>
+        .hero-section {
+            background-color: #003366;  /* Dark Blue */
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .hero-text {
+            font-size: 28px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .note-text {
+            font-size: 20px;
+            color: #f39c12;
+            margin-top: 30px;
+        }
+
+        .main-note {
+            font-size: 22px;
+            margin-top: 40px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #2980b9;
+            border-radius: 8px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="hero-section">', unsafe_allow_html=True)
+    st.markdown('<div class="hero-text">Welcome to the Resume Screening System! The modern job market is more competitive than ever. Having a tailored resume that accurately reflects your skills and experience in relation to the job description is crucial. This tool provides a comprehensive analysis of your resume and the job description, helping you identify missing skills, critical keywords, and important qualifications. Let’s get started!</div>', unsafe_allow_html=True)
+    st.markdown('<p class="note-text">Note: This tool will help you optimize your resume by identifying missing skills, keywords, and matching your experience with the job description to improve your chances of landing the job you desire.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Large note in the hero section for emphasis
+    st.markdown(""" 
+    <div class="main-note">Optimize your resume today and boost your chances of landing your dream job!</div>
+    """, unsafe_allow_html=True)
+
+# Function for the Resume Upload Section with submit button
+def upload_section():
+    st.markdown("""
+    <style>
+        .upload-section {
+            background-color: #f0f5f9;  /* Light Blue */
+            padding: 60px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section h2 {
+            color: #003366;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .upload-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .upload-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-card h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0099FF;
+        }
+
+        .upload-card .stButton button {
+            background-color: #0099FF;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .upload-card .stButton button:hover {
+            background-color: #006bb3;
+        }
+
+        .submit-box {
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .submit-box button {
+            background-color: #0099FF;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 20px;
+            border: none;
+        }
+
+        .submit-box button:hover {
+            background-color: #006bb3;
+        }
+
+        .note-text {
+            font-size: 20px;
+            color: #f39c12;
+            margin-top: 30px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="upload-section">', unsafe_allow_html=True)
+    st.markdown('<h2>Upload Your Resume and Job Description</h2>', unsafe_allow_html=True)
+
+    st.markdown(""" 
+    <p>In this section, you can upload your resume and the job description. The system will analyze the content of both documents and evaluate how well your resume matches the job description. This analysis will include identifying the missing keywords, key skills, and matching experience that align with the job requirements. By optimizing your resume, you improve your chances of standing out in the recruitment process!</p>
+    """, unsafe_allow_html=True)
+
+    resume_file = st.file_uploader("Upload Resume (PDF or DOCX)", type=["pdf", "docx"])
+    
+    # Text input for Job Description
+    job_description_text = st.text_area("Enter Job Description (Plain Text)", height=200)
+
+    st.markdown(""" 
+    <p class="note-text">Note: Make sure your resume is in PDF or DOCX format and enter the job description in plain text format. This will ensure proper analysis of the content.</p>
+    """, unsafe_allow_html=True)
+
+    # Submit Button inside a small black box
+    if resume_file and job_description_text:
+        st.markdown(""" 
+        <div class="submit-box">
+            <button>Analyze Now</button>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Trigger the analysis on button click using Streamlit's st.button
+        if st.button("Analyze Now"):
+            st.success("Files uploaded successfully! Proceeding with the analysis...")
+            # Placeholder for analysis logic, to navigate the user to the analysis section
+            st.markdown('<a href="#analysis-section" class="hero-button">Go to Analysis</a>', unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Function to display the Analysis Section
+def analysis_section():
+    st.markdown("""
+    <style>
+        .analysis-section {
+            background-color: white;
+            padding: 60px 30px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-section h2 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .analysis-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .analysis-card {
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-card h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2980b9;
+        }
+
+        .analysis-card p {
+            font-size: 22px;
+            color: #7f8c8d;
+        }
+
+        .suggestions {
+            font-size: 22px;
+            color: #2ecc71;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .note-text {
+            font-size: 20px;
+            color: #f39c12;
+            font-weight: bold;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
+    st.markdown('<h2>Resume Analysis Results</h2>', unsafe_allow_html=True)
+
+    st.markdown(""" 
+    <p>Your resume has been analyzed based on the content of the job description you entered. Below are the key insights from the analysis:</p>
+    """, unsafe_allow_html=True)
+
+    # Using Streamlit columns to display match percentage, missing keywords, and skills horizontally
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown('<div class="analysis-card"><h4>Match Percentage</h4><p>78%</p></div>', unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown('<div class="analysis-card"><h4>Missing Keywords</h4><p>Python, SQL, Data Analysis</p></div>', unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown('<div class="analysis-card"><h4>Skills to Improve</h4><p>Communication, Leadership</p></div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="suggestions">Suggestions: Add the missing keywords to improve your resume. Highlight your leadership and communication skills to increase your chances of getting noticed by recruiters.</div>', unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Main function to run the Streamlit app
+def main():
+    st.set_page_config(page_title="Resume Screening System", page_icon=":briefcase:", layout="wide")
+
+    # Sections of the Website
+    custom_header()
+    hero_section()
+    upload_section()
+    analysis_section()
+
+if _name_ == "_main_":
+    main()
